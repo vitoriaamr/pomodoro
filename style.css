@@ -1,0 +1,128 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Press Start 2P", cursive, sans-serif;
+  background: url('img/fundo.png') no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  overflow: hidden;
+  padding-top: 30px;
+  box-sizing: border-box;
+}
+
+.container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+#timer {
+  font-size: 32px;
+  margin:40px 0;
+  font-family: "Press Start 2P", cursive, sans-serif;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top:60px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.buttons button {
+  width: 100px;
+  height: 60px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  background-color: transparent;
+}
+
+.buttons button::before,
+.buttons button span {
+  display: none;
+}
+
+.buttons button:hover {
+  transform: scale(1.05);
+}
+
+#start-btn {
+  background-image: url('img/start.png');
+}
+
+#pause-btn {
+  background-image: url('img/pause.png');
+}
+
+#reset-btn {
+  background-image: url('img/reset.png');
+}
+
+.custom-titlebar {
+  -webkit-app-region: drag;
+  height: 30px;
+  width: 100%;
+  background-color: #ffb6c1;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.custom-titlebar .titlebar-title {
+  -webkit-app-region: no-drag;
+  font-size: 12px;
+  font-family: "Press Start 2P", cursive;
+}
+
+.titlebar-buttons {
+  -webkit-app-region: no-drag;
+  display: flex;
+}
+
+.titlebar-buttons button {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.2s;
+  padding: 0;
+}
+
+#close-btn::before {
+  content: '✕';
+}
+
+#close-btn:hover {
+  background-color: #ffa5d9;
+}
+#close-btn:hover::before {
+  color: white;
+}
