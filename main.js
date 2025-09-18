@@ -9,13 +9,14 @@ function createWindow() {
     frame: false,
     titleBarStyle: 'hidden',
     webPreferences: {
-      contextIsolation: false, 
-      nodeIntegration: true,
+      contextIsolation: true,
+      nodeIntegration: false,
+     preload: path.join(__dirname, 'preload.js')
     },
   });
 
   win.loadFile('index.html');
-  win.webContents.openDevTools();
+
   win.setMenu(null);
 
 

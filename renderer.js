@@ -49,7 +49,7 @@ function resetTimer() {
 document.addEventListener('DOMContentLoaded', () => {
   updateDisplay();
 
-  // Controles da janela
+
   const minimizeBtn = document.getElementById('minimize-btn');
   const maximizeBtn = document.getElementById('maximize-btn');
   const closeBtn = document.getElementById('close-btn');
@@ -87,5 +87,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (resetBtn) {
     resetBtn.addEventListener('click', resetTimer);
+  }
+});
+
+const { contextBridge, ipcRenderer } = require('electron');
+
+contextBridge.exposeInMainWorld('api', {
+  send: (channel, data) => {
+    const validChannels = ['minimize-app', 'maximize-restore-app', 'close-app'];
+    if (validChannels.includes(channel)) {
+      ipcRenderer.send(channel, data);
+    }
   }
 });
